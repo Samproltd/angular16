@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - workflow-setup
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build the application
+        run: npm run build --if-present
+
+      - name: Install Chromium dependencies
+        run: |
+          sudo apt-get update
+          UBUNTU_VERSION=$(lsb_release -rs)
+          if [[ "$UBUNTU_VERSION" == "24.04" ]]; then
+            sudo apt-get install -y libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxrandr2 libgbm1
+          else
+            sudo apt-get install -y libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxrandr2 libgbm1 libasound2
+          fi
+
+      # - name: Run tests
+      #   run: |
+      #     export CHROME_BIN=$(which google-chrome-stable || which google-chrome || which chromium)
+      #     npm test
