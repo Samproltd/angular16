@@ -1,0 +1,59 @@
+.truncate {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.example-header-image {
+  background-image: url("/assets/exam1.png");
+  background-size: cover;
+}
+
+/* Increase card size */
+.quiz-card {
+  width: 500px; /* Increased width */
+  max-width: 700px; /* Set a max-width to avoid excessive stretching */
+  margin: 30px auto; /* More spacing between cards */
+  display: block;
+  padding: 30px; /* Increased padding */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+  border-radius: 15px; /* More rounded corners */
+}
+
+/* Enlarged Start button */
+.start-button {
+  background-color: #007bff;
+  color: white;
+  width: 150px; /* Increased width */
+  height: 50px; /* Increased height */
+  font-size: 20px; /* Larger text */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Start button */
+.start-button:hover {
+  background-color: #5bc0de;
+  transform: scale(1.02); /* Slightly larger hover effect */
+}
+
+/* Styling for buttons inside mat-card */
+.mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* More space between buttons */
+}
+
+.mat-card-actions button {
+  width: 100%;
+  font-size: 16px; /* Larger button text */
+}
+
+/* Centered container */
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

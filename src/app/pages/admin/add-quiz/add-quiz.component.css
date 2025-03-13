@@ -1,0 +1,16 @@
+.container {
+  padding-left: 40px; /* Increased left padding to give more space */
+  padding-right: 20px;
+}
+
+.mat-card {
+  margin-left: 40px; /* Increase this value to move the entire card to the right */
+}
+
+.w100 {
+  width: 100%;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
